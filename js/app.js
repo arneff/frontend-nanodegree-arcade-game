@@ -35,8 +35,8 @@ Enemy.prototype.render = function() {
 // https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection
 Enemy.prototype.checkCollisions = function(){
   //console.log("checkCollisions");
-  let enemyRect = {x: this.xPosition + 8, y: this.yPosition + 80, width: 85, height: 55}
-  let playerRect = {x: player.xPosition + 22, y: player.yPosition + 70, width: 60, height: 60}
+  let enemyRect = {x: this.xPosition + 8, y: this.yPosition + 80, width: 85, height: 55};
+  let playerRect = {x: player.xPosition + 22, y: player.yPosition + 70, width: 60, height: 60};
 
 if (enemyRect.x < playerRect.x + playerRect.width &&
    enemyRect.x + enemyRect.width > playerRect.x &&
@@ -46,7 +46,7 @@ if (enemyRect.x < playerRect.x + playerRect.width &&
     player.xPosition = 202.5;
     player.yPosition = 400;
 }
-}
+};
 
 // Now write your own player class
 // This class requires an update(), render() and
@@ -68,27 +68,29 @@ Player.prototype.update = function() {
     this.xPosition = 202.5;
     this.yPosition = 400;
   }
-}
+};
 
 Player.prototype.render = function() {
   ctx.drawImage(Resources.get(this.sprite), this.xPosition, this.yPosition);
   //drawBox(this.xPosition + 22, this.yPosition + 70, 60, 60, 'yellow');
-}
+};
 
 Player.prototype.handleInput = function(keyPress) {
   if (keyPress === 'up') {
-    player.yPosition -= 25;
+    player.yPosition -= 75;
   }
   if (keyPress === 'down') {
-    player.yPosition += 25;
+    player.yPosition += 75;
   }
   if (keyPress === 'left') {
-    player.xPosition -= 25;
+    //console.log(player.xPosition);
+    player.xPosition -= 75;
   }
   if (keyPress === 'right') {
-    player.xPosition += 25;
+    //console.log(player.xPosition);
+    player.xPosition += 75;
   }
-}
+};
 
 let inBounds = function(player) {
   if (player.yPosition > 400) {
@@ -97,15 +99,15 @@ let inBounds = function(player) {
   if (player.yPosition < -5) {
     player.yPosition = -5;
   }
-  if (player.xPosition > 410) {
-    player.xPosition = 410;
+  if (player.xPosition > 402.5) {
+    player.xPosition = 402.5;
   }
-  if (player.xPosition < -10) {
-    player.xPosition = -10;
+  if (player.xPosition < 2.5) {
+    player.xPosition = 2.5;
   }
-}
+};
 
-
+/*
 function drawBox(x, y, width, height, color) {
   ctx.beginPath();
   ctx.rect(x, y, width, height);
@@ -113,15 +115,21 @@ function drawBox(x, y, width, height, color) {
   ctx.strokeStyle = color;
   ctx.stroke();
 }
+*/
+
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 let allEnemies = [];
 let player = new Player();
-let enemy = new Enemy();
+let enemy1 = new Enemy();
+let enemy2 = new Enemy();
+let enemy3 = new Enemy();
 
-allEnemies.push(enemy);
+allEnemies.push(enemy1);
+allEnemies.push(enemy2);
+allEnemies.push(enemy3);
 
 
 
