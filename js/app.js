@@ -29,14 +29,14 @@ Enemy.prototype.update = function(dt) {
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.xPosition, this.yPosition);
-    //drawBox(this.xPosition, this.yPosition + 75, 100, 70, 'red');
+    //drawBox(this.xPosition + 8, this.yPosition + 80, 85, 55, 'red');
 };
 
 // https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection
 Enemy.prototype.checkCollisions = function(){
   //console.log("checkCollisions");
-  let enemyRect = {x: this.xPosition, y: this.yPosition + 75, width: 80, height: 70}
-  let playerRect = {x: player.xPosition + 17, y: player.yPosition + 60, width: 60, height: 80}
+  let enemyRect = {x: this.xPosition + 8, y: this.yPosition + 80, width: 85, height: 55}
+  let playerRect = {x: player.xPosition + 22, y: player.yPosition + 70, width: 60, height: 60}
 
 if (enemyRect.x < playerRect.x + playerRect.width &&
    enemyRect.x + enemyRect.width > playerRect.x &&
@@ -72,7 +72,7 @@ Player.prototype.update = function() {
 
 Player.prototype.render = function() {
   ctx.drawImage(Resources.get(this.sprite), this.xPosition, this.yPosition);
-  //drawBox(this.xPosition + 17, this.yPosition + 60, 68, 80, 'yellow');
+  //drawBox(this.xPosition + 22, this.yPosition + 70, 60, 60, 'yellow');
 }
 
 Player.prototype.handleInput = function(keyPress) {
