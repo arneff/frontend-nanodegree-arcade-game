@@ -18,22 +18,41 @@ Enemy.prototype.update = function(dt) {
     // all computers.
     this.xPosition += this.speed * dt;
 
-    //place enemy at begining after reaching the end
+    //resp enemy at begining after reaching the end
     if (this.xPosition >= 510) {
       this.xPosition = 0;
     }
+
+    this.checkCollisions();
 };
 
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.xPosition, this.yPosition);
+    //drawBox(this.xPosition, this.yPosition + 75, 100, 70, 'red');
 };
+
+// https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection
+Enemy.prototype.checkCollisions = function(){
+  //console.log("checkCollisions");
+  let enemyRect = {x: this.xPosition, y: this.yPosition + 75, width: 80, height: 70}
+  let playerRect = {x: player.xPosition + 17, y: player.yPosition + 60, width: 60, height: 80}
+
+if (enemyRect.x < playerRect.x + playerRect.width &&
+   enemyRect.x + enemyRect.width > playerRect.x &&
+   enemyRect.y < playerRect.y + playerRect.height &&
+   enemyRect.height + enemyRect.y > playerRect.y) {
+    console.log('collision detected!');
+    player.xPosition = 202.5;
+    player.yPosition = 400;
+}
+}
 
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
 let Player = function(xPosition, yPosition) {
-  this.xPosition = 200;
+  this.xPosition = 202.5;
   this.yPosition = 400;
 
 
@@ -45,11 +64,15 @@ let Player = function(xPosition, yPosition) {
 
 Player.prototype.update = function() {
   inBounds(this);
+  if (this.yPosition <= 20){
+    this.xPosition = 202.5;
+    this.yPosition = 400;
+  }
 }
 
 Player.prototype.render = function() {
   ctx.drawImage(Resources.get(this.sprite), this.xPosition, this.yPosition);
-
+  //drawBox(this.xPosition + 17, this.yPosition + 60, 68, 80, 'yellow');
 }
 
 Player.prototype.handleInput = function(keyPress) {
@@ -82,8 +105,13 @@ let inBounds = function(player) {
   }
 }
 
-let checkCollisions = function() {
 
+function drawBox(x, y, width, height, color) {
+  ctx.beginPath();
+  ctx.rect(x, y, width, height);
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = color;
+  ctx.stroke();
 }
 
 // Now instantiate your objects.
@@ -94,6 +122,7 @@ let player = new Player();
 let enemy = new Enemy();
 
 allEnemies.push(enemy);
+
 
 
 
