@@ -46,7 +46,7 @@ Enemy.prototype.checkCollisions = function(){
       //console.log('collision detected!');
       player.xPosition = 212;
       player.yPosition = 450;
-      collisions++
+      collisions++;
     }
   //after a collision occurs remove a player 'life' from visiblity
   if (collisions === 1){
@@ -175,19 +175,19 @@ function gameOver() {
   //exit the modal
   span.onclick = function() {
   modal.style.display = "none";
-  }
+};
 
   //exit the modal
   window.onclick = function(event) {
     if (event.target == modal) {
       modal.style.display = "none";
     }
-  }
+  };
 
   //exit modal if user no longer wishes to play
   quit.onclick = function() {
     modal.style.display = "none";
-  }
+  };
 
   //refresh game
   newGame.onclick = function() {
@@ -198,7 +198,7 @@ function gameOver() {
     enemy2 = new Enemy();
     allEnemies.push(enemy1, enemy2);
     modal.style.display = "none";
-  }
+  };
 
 }
 
