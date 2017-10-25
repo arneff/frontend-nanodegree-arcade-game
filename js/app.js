@@ -84,8 +84,8 @@ Player.prototype.update = function() {
     this.xPosition = 212;
     this.yPosition = 450;
     level++;
-    let enemy = new Enemy();
-    allEnemies.push(enemy);
+    let addEnemy = new Enemy();
+    allEnemies.push(addEnemy);
   }
   let levelTotal =+ level;
   $('.level').text(levelTotal);
