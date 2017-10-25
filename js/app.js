@@ -101,19 +101,21 @@ Player.prototype.render = function() {
 };
 //take input from keybard to move player
 Player.prototype.handleInput = function(keyPress) {
-  if (keyPress === 'up') {
-    player.yPosition -= 25;
-  }
-  if (keyPress === 'down') {
-    player.yPosition += 25;
-  }
-  if (keyPress === 'left') {
-    player.xPosition -= 25;
+  if (collisions < 3) {
+    if (keyPress === 'up') {
+      player.yPosition -= 25;
+    }
+    if (keyPress === 'down') {
+      player.yPosition += 25;
+    }
+    if (keyPress === 'left') {
+      player.xPosition -= 25;
 
-  }
-  if (keyPress === 'right') {
-    player.xPosition += 25;
+    }
+    if (keyPress === 'right') {
+      player.xPosition += 25;
 
+    }
   }
 };
 
@@ -210,6 +212,6 @@ document.addEventListener('keyup', function(e) {
         39: 'right',
         40: 'down'
     };
-
     player.handleInput(allowedKeys[e.keyCode]);
+
 });
