@@ -42,6 +42,8 @@ To detect collisions for this game I used the Axis-Aligned Bounding Box techniqu
 ## Acknowledgements
 
 * Udacity Support Team - for timely advice when I find myself stuck.
+* W3Schools Modal Tutorial
+* Mozilla MDN Web Docs
 
 
 ## Project Instructions
