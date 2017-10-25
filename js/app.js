@@ -84,9 +84,13 @@ Player.prototype.update = function() {
     this.xPosition = 212;
     this.yPosition = 450;
     level++;
+    let enemy = new Enemy();
+    allEnemies.push(enemy);
   }
   let levelTotal =+ level;
   $('.level').text(levelTotal);
+  $('#finalLevel').text(levelTotal);
+
 };
 
 
@@ -158,12 +162,13 @@ function gameOver() {
   //remove enemies from allEneiems array
   while(allEnemies.length > 0){
     allEnemies.pop();
-  }
+  };
 
   //create end of game message
   let modal = document.getElementById('myModal');
   let span = document.getElementsByClassName("close")[0];
   $('.modal').css('display', 'block');
+
 
   //exit the modal
   span.onclick = function() {
