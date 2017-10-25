@@ -29,7 +29,7 @@ Enemy.prototype.update = function(dt) {
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.xPosition, this.yPosition);
-    drawBox(this.xPosition + 8, this.yPosition + 80, 85, 55, 'red');
+    //drawBox(this.xPosition + 8, this.yPosition + 80, 85, 55, 'red');
 };
 
 // https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection
@@ -38,15 +38,16 @@ Enemy.prototype.checkCollisions = function(){
   let enemyRect = {x: this.xPosition + 8, y: this.yPosition + 80, width: 85, height: 55};
   let playerRect = {x: player.xPosition + 10, y: player.yPosition + 10, width: 60, height: 70};
 
-if (enemyRect.x < playerRect.x + playerRect.width &&
-   enemyRect.x + enemyRect.width > playerRect.x &&
-   enemyRect.y < playerRect.y + playerRect.height &&
-   enemyRect.height + enemyRect.y > playerRect.y) {
-    console.log('collision detected!');
-    player.xPosition = 212;
-    player.yPosition = 450;
-    collisions++
-  }
+  //defines collision area
+  if (enemyRect.x < playerRect.x + playerRect.width &&
+     enemyRect.x + enemyRect.width > playerRect.x &&
+     enemyRect.y < playerRect.y + playerRect.height &&
+     enemyRect.height + enemyRect.y > playerRect.y) {
+      //console.log('collision detected!');
+      player.xPosition = 212;
+      player.yPosition = 450;
+      collisions++
+    }
   //after a collision occurs remove a player 'life' from visiblity
   if (collisions === 1){
     $('.lives li:last-child').hide();
@@ -92,7 +93,7 @@ Player.prototype.update = function() {
 //show player on canvas
 Player.prototype.render = function() {
   ctx.drawImage(Resources.get(this.sprite), this.xPosition, this.yPosition);
-  drawBox(this.xPosition + 10, this.yPosition + 10, 60, 70, 'yellow');
+  //drawBox(this.xPosition + 10, this.yPosition + 10, 60, 70, 'yellow');
 };
 //take input from keybard to move player
 Player.prototype.handleInput = function(keyPress) {
@@ -103,12 +104,10 @@ Player.prototype.handleInput = function(keyPress) {
     player.yPosition += 25;
   }
   if (keyPress === 'left') {
-    //console.log(player.xPosition);
     player.xPosition -= 25;
 
   }
   if (keyPress === 'right') {
-    //console.log(player.xPosition);
     player.xPosition += 25;
 
   }
@@ -166,14 +165,19 @@ function gameOver() {
   let span = document.getElementsByClassName("close")[0];
   $('.modal').css('display', 'block');
 
+  //exit the modal
   span.onclick = function() {
   modal.style.display = "none";
   }
+
+  //exit the modal
   window.onclick = function(event) {
     if (event.target == modal) {
       modal.style.display = "none";
     }
   }
+
+  //exit modal if user no longer wishes to play
   quit.onclick = function() {
     modal.style.display = "none";
   }
