@@ -20,9 +20,6 @@ The starter project presupplied 2 JavaScript files:
 1. Using Git
   1. git clone https://github.com/arneff/frontend-nanodegree-arcade-game.git
   2. Open index.html
-
--OR-
-
 2. From Github
   1. Navigate to https://github.com/arneff/frontend-nanodegree-arcade-game
   2. Download Zip
