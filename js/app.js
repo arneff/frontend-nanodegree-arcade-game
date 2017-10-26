@@ -77,9 +77,22 @@ let Player = function(xPosition, yPosition) {
 
 };
 //update player instance to ensure stays within canvas
-//if player reaches the top of the canvas reset to starting postion
 Player.prototype.update = function() {
-  inBounds(this);
+  //sets parameters of player to stay in certain area on canvas
+  if (player.yPosition > 450) {
+    this.yPosition = 450;
+  }
+  if (player.yPosition < 50) {
+    this.yPosition = 50;
+  }
+  if (player.xPosition > 412) {
+    this.xPosition = 412;
+  }
+  if (player.xPosition < 12) {
+    this.xPosition = 12;
+  }
+  //if player reaches the top of the canvas reset to starting postion
+  //add new enemy and increase level count
   if (this.yPosition <= 50){
     this.xPosition = 212;
     this.yPosition = 450;
@@ -103,37 +116,23 @@ Player.prototype.render = function() {
 Player.prototype.handleInput = function(keyPress) {
   if (collisions < 3) {
     if (keyPress === 'up') {
-      player.yPosition -= 25;
+      this.yPosition -= 25;
     }
     if (keyPress === 'down') {
-      player.yPosition += 25;
+      this.yPosition += 25;
     }
     if (keyPress === 'left') {
-      player.xPosition -= 25;
+      this.xPosition -= 25;
 
     }
     if (keyPress === 'right') {
-      player.xPosition += 25;
+      this.xPosition += 25;
 
     }
   }
 };
 
-//sets parameters of player to stay in certain area on canvas
-let inBounds = function(player) {
-  if (player.yPosition > 450) {
-    player.yPosition = 450;
-  }
-  if (player.yPosition < 50) {
-    player.yPosition = 50;
-  }
-  if (player.xPosition > 412) {
-    player.xPosition = 412;
-  }
-  if (player.xPosition < 12) {
-    player.xPosition = 12;
-  }
-};
+
 
 //when called draws a box around an element
 function drawBox(x, y, width, height, color) {
