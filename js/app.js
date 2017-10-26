@@ -79,16 +79,16 @@ let Player = function(xPosition, yPosition) {
 //update player instance to ensure stays within canvas
 Player.prototype.update = function() {
   //sets parameters of player to stay in certain area on canvas
-  if (player.yPosition > 450) {
+  if (this.yPosition > 450) {
     this.yPosition = 450;
   }
-  if (player.yPosition < 50) {
+  if (this.yPosition < 50) {
     this.yPosition = 50;
   }
-  if (player.xPosition > 412) {
+  if (this.xPosition > 412) {
     this.xPosition = 412;
   }
-  if (player.xPosition < 12) {
+  if (this.xPosition < 12) {
     this.xPosition = 12;
   }
   //if player reaches the top of the canvas reset to starting postion
@@ -116,17 +116,17 @@ Player.prototype.render = function() {
 Player.prototype.handleInput = function(keyPress) {
   if (collisions < 3) {
     if (keyPress === 'up') {
-      this.yPosition -= 25;
+      this.yPosition -= 83;
     }
     if (keyPress === 'down') {
-      this.yPosition += 25;
+      this.yPosition += 83;
     }
     if (keyPress === 'left') {
-      this.xPosition -= 25;
+      this.xPosition -= 101;
 
     }
     if (keyPress === 'right') {
-      this.xPosition += 25;
+      this.xPosition += 101;
 
     }
   }
