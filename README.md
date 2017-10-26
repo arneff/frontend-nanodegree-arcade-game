@@ -3,6 +3,7 @@
 ## Table of Contents
 
 * [Overview](#overview)
+* [How to Run the Game](#how-to-run-the-game)
 * [How to Play](#how-to-play)
 * [Collisions](#collisions)
 * [Acknowledgements](#acknowledgements)
@@ -14,6 +15,19 @@ This 'Frogger' Clone Arcade Game is a project associated with Udacity's Front-En
 The starter project presupplied 2 JavaScript files:
 - engine.js
 - resources.js
+
+## How to Run the Game
+1. Using Git
+  1. git clone https://github.com/arneff/frontend-nanodegree-arcade-game.git
+  2. Open index.html
+
+-OR-
+
+2. From Github
+  1. Navigate to https://github.com/arneff/frontend-nanodegree-arcade-game
+  2. Download Zip
+  3. Open index.html
+  ![Image of where to download Zip](images/github-download.png)
 
 ## How to Play
 * Use the arrow keys on your keyboard to move the player 'up', 'down', 'left', or 'right'.
