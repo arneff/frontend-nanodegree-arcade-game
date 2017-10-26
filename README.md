@@ -18,12 +18,13 @@ The starter project presupplied 2 JavaScript files:
 
 ## How to Run the Game
 1. Using Git
-  1. git clone https://github.com/arneff/frontend-nanodegree-arcade-game.git
-  2. Open index.html
+    1. git clone https://github.com/arneff/frontend-nanodegree-arcade-game.git
+    2. Open index.html
 2. From Github
-  1. Navigate to https://github.com/arneff/frontend-nanodegree-arcade-game
-  2. Download Zip
-  3. Open index.html
+    1. Navigate to https://github.com/arneff/frontend-nanodegree-arcade-game
+    2. Download Zip
+    3. Open index.html
+
   ![Image of where to download Zip](images/github-download.png)
 
 ## How to Play
